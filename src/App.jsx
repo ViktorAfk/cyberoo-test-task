@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
-
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { getRecords } from './api/api';
+import { useDispatch } from 'react-redux';
+import { getCarsRecords } from './features/carsRecords';
 
  export const  App = () => {
-  const [carsRecords, setCardsRecords] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getRecords()
-      .then(data => setCardsRecords(Object.entries(data.data)))
+    dispatch(getCarsRecords());
   }, [])
 
   return (
@@ -17,7 +16,6 @@ import { getRecords } from './api/api';
         <Outlet />
       </div>
     </div>
-      
   )
 }
 
