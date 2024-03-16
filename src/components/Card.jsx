@@ -1,7 +1,10 @@
-export const Card = () => {
+import { useParams } from "react-router-dom"
+
+export const CurrentCar = () => {
+ const { id } = useParams();
   return (
     <div>
-      I am a card
+      {`I am a car №${id}`}
     </div>
   )
 }

@@ -7,6 +7,8 @@ import {
 import { App } from './App.jsx';
 
 import './index.scss'
+import { CurrentCar } from './components/Card.jsx';
+import { CarsCatalog } from './components/CarsCatalog/CarsCatalog.jsx';
 
 const router = createHashRouter([
   {
@@ -14,10 +16,15 @@ const router = createHashRouter([
     element: <App/>,
     children: [
       {
-        path: 'cars/:id'
+        path: '/',
+        element: <CarsCatalog />,
+      },
+      {
+        path: 'cars/:id',
+        element: <CurrentCar />
       }
     ]
-  }
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
