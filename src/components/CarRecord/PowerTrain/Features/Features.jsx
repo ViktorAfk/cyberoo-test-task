@@ -1,0 +1,10 @@
+import styles from './Features.module.scss';
+
+export const Features = ({features}) => {
+  return (
+    <div className={styles.features}>
+      <p className={styles.features__type}>features</p>
+      <p className={styles.features__information}>{features.join(', ')}</p>
+    </div>
+  )
+}

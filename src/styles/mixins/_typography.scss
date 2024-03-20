@@ -1,0 +1,60 @@
+@import './responsive';
+@import './../variables/colors';
+
+@mixin typographyCarHeader {
+  font-family: "Bebas Neue", sans-serif;
+  color: $main-color;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
+
+  @include onTablet {
+    font-size: 30px;
+    line-height: 110%;
+  }
+}
+
+@mixin typographyCarOverview {
+  font-family: "Bebas Neue", sans-serif;
+  color: $main-color;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
+
+  @include onTablet {
+    font-size: 26px;
+  }
+}
+
+@mixin typographyCarInformation {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: $line-text-color;
+  font-size: 16px;
+  line-height: 146.5%;
+  letter-spacing: 1.28px;
+
+  @include onTablet {
+    font-weight: 18px;
+  }
+}
+
+@mixin typographyCarDetailsInformation {
+  font-family: "Roboto", sans-serif;
+  color: $line-text-color;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 125%;
+  
+  @include onTablet {
+    font-size: 16px;
+  }
+}
+
+

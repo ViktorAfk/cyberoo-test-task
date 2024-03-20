@@ -1,0 +1,9 @@
+@import '../../styles';
+
+.car-header {
+  height: $header-height-mobile;
+  background-color: $button-collor;
+  @include onTablet {
+    height: $header-height-desktop;
+  }
+}

@@ -1,16 +1,13 @@
-#root {
-  max-width: 1280px;
+@import './styles';
+
+.app {
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+  background-color: #FFF;
 
-.cars-catalog {
-  display: flex;
-  gap: 20px;
-}
-
-.car {
-  border: 1px solid black;
-  border-radius: 5px;
+  &__main {
+    max-width: 1280px;
+    padding-inline: $pc-inline-padding;
+    min-height: 100vh;
+    background-color: #FFF;
+  }
 }

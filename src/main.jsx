@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom/client';
 import {
   createHashRouter,
   RouterProvider,
-} from "react-router-dom";
+} from 'react-router-dom';
 import { App } from './App.jsx';
 
 import './index.scss'
-import { CurrentCar } from './components/Card.jsx';
 import { CarsCatalog } from './components/CarsCatalog/CarsCatalog.jsx';
 import { Provider } from 'react-redux';
 import { store } from './store/store.js';
+import { CarRecord } from './components/CarRecord/CarRecord.jsx';
+
+
+
 
 const router = createHashRouter([
   {
@@ -23,7 +26,7 @@ const router = createHashRouter([
       },
       {
         path: 'cars/:id',
-        element: <CurrentCar />
+        element: <CarRecord />
       }
     ]
   },

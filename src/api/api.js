@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: 'https://test-task-413207-default-rtdb.europe-west1.firebasedatabase.app/',
-  timeout: 300,
+  timeout: 500,
 })
 
 const request = {
