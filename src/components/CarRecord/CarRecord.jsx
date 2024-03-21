@@ -8,6 +8,8 @@ import { CarDetailsButton } from "../Buttons/CarDetailsButotn/CarDetailsButton";
 import styles from './CarRecord.module.scss';
 import { Owner } from "./Owner/Owner";
 import { MaintaineRecords } from "./MaintainRecords/MaintaineRecords";
+import { Button } from "../Buttons/Button/Button";
+import { FormRecord } from "../FormRecord/FormRecord";
 
 
 
@@ -85,7 +87,11 @@ const headerInfo = `${manufacturer} ${model}, ${year}`;
               {showMaintRecords && (<MaintaineRecords maintenanceRecords={maintenanceRecords}/>)}
             </div>
           </div>
+          <Button>
+            Edit
+          </Button>
         </article>
+        <FormRecord />
       </div>
     </section>
    

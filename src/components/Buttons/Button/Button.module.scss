@@ -1,0 +1,16 @@
+@import './../../../styles/';
+
+.button {
+  border-radius: 24px;
+  width: 230px;
+  height: 44px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Bebas Neue";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 1.28px;
+  background-color: $button-collor;
+}

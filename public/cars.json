@@ -116,7 +116,7 @@
       "description": "Software Update",
       "mileage": 8000,
       "serviceCenter": {
-        "name": "Tesla Service Center",
+      "name": "Tesla Service Center",
         "location": "789 Tech Blvd, Cityville"
       },
       "partsUsed": [

@@ -5,9 +5,18 @@
   background-color: #FFF;
 
   &__main {
+    padding-inline: $mobile-inline-padding;
     max-width: 1280px;
-    padding-inline: $pc-inline-padding;
+    min-width: 375px;
     min-height: 100vh;
     background-color: #FFF;
+
+    @include onTablet {
+      padding-inline: $tablet-inline-padding;
+    }
+    
+    @include onDesktop {
+      padding-inline: $pc-inline-padding;
+    }
   }
 }

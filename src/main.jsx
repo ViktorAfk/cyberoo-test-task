@@ -11,6 +11,7 @@ import { CarsCatalog } from './components/CarsCatalog/CarsCatalog.jsx';
 import { Provider } from 'react-redux';
 import { store } from './store/store.js';
 import { CarRecord } from './components/CarRecord/CarRecord.jsx';
+import { FormRecord } from './components/FormRecord/FormRecord.jsx';
 
 
 
@@ -27,7 +28,12 @@ const router = createHashRouter([
       {
         path: 'cars/:id',
         element: <CarRecord />
+      },
+      {
+        path: 'form',
+        element: <FormRecord />
       }
+      
     ]
   },
 ])

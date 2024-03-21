@@ -7,7 +7,6 @@
   padding-top: 25px;
   padding-bottom: 64px;
   max-width: 920px;
-  padding-inline: 20px;
   margin-inline: auto;
   background-color: #FFF
 }
@@ -52,11 +51,15 @@
 }
 
   &__buttons {
-    
+    display: grid;
+    row-gap: 30px;
+    margin-bottom: 30px;
+
     @include onTablet {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       column-gap: 16px;
+      
     }
   }
 
