@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import styles from './MaintaineRecords.module.scss';
 
 export const MaintaineRecords = ({ maintenanceRecords }) => {
-
+  console.log(maintenanceRecords)
   const maintainces = maintenanceRecords.map(maintaince => (
     {
      ...maintaince, 

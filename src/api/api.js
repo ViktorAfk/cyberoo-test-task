@@ -14,6 +14,10 @@ const request = {
       return instance.get(`records/${name}.json`)
     },
 
+    addRecord (record) {
+      return instance.post('records.json', record)
+    },
+
     updateRecord(record) {
       const [name, carInfo] = record;
       return instance.patch(`records/${name}.json`, carInfo)
@@ -24,4 +28,4 @@ const request = {
     }
 }
 
-export const { getRecord, getRecords, updateRecord, deleteRecord } = request;
+export const { getRecord, getRecords, updateRecord, deleteRecord, addRecord } = request;

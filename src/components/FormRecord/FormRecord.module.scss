@@ -1,6 +1,31 @@
 @import './../../styles/';
 
 .formrecord {
-  display: grid;
-  row-gap: 5px;
+  padding-top: 25px;
+  padding-bottom: 64px;
+
+  &__header {
+    @include typographyCarHeader;
+    margin-bottom: 30px;
+  }
+
+  @include onTablet() {
+    padding-bottom: 80px;
+  }
+
+}
+
+.form {
+  &__container {
+    display: grid;
+    row-gap: 5px;
+    padding-block: 20px;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+  }
+ 
+  
 }

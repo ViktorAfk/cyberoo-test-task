@@ -1,19 +1,20 @@
 import { useFormContext } from "react-hook-form"
+import styles from './FormKey.module.scss';
 
 export const FormKey = () => {
-  const {register} = useFormContext()
+  const { register } = useFormContext()
   return (
-    <div>
-      <div>
+    <div className={styles['form-key']}>
+        <div className={styles.group}>
           <label htmlFor="carId">car id</label>
-          <input 
+          <input
             type="text" 
             id="carId" 
-            {...register("carId")} 
+            { ...register("carId") } 
           />
         </div>
 
-        <div>
+        <div className={ styles.group }>
           <label htmlFor="manufacture">manufacture</label>
             <input 
               id="manufacture" 
@@ -22,21 +23,21 @@ export const FormKey = () => {
             />
         </div>
 
-        <div>
-        <label htmlFor="model">model</label>
-          <input 
-            id="model" 
-            type="text" 
-            {...register("model")} 
-          />
+        <div className={ styles.group }>
+          <label htmlFor="model">model</label>
+            <input 
+              id="model" 
+              type="text" 
+              { ...register("model") } 
+            />
         </div>
 
-        <div>
+        <div className={ styles.group }>
           <label htmlFor="color">color</label>
           <input 
             id="color" 
             type="text" 
-            {...register("color")} 
+            { ...register("color") } 
           />
         </div>
     </div>

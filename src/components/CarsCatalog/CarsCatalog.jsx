@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 export const CarsCatalog = () => {
 
   const { carsRecords } = useSelector(store => store.records);
- 
+  console.log(carsRecords);
   return (
     <section className={ styles['cars-catalog'] }>
       { carsRecords.map((carRecord) => {

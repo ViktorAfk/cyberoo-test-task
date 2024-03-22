@@ -23,6 +23,7 @@ export const CarRecord = () => {
  const { currentCar, loaded } = useSelector(store => store.car);
 
 
+
 useEffect(() => {
  dispatch(getCarRecord(id));
 
@@ -39,7 +40,7 @@ const {
   owner, 
   maintenanceRecords,
 } =currentCar;
-
+console.log(maintenanceRecords);
 const headerInfo = `${manufacturer} ${model}, ${year}`;
 
   return (

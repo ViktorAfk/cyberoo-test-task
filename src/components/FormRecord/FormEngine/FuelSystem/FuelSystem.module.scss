@@ -1,0 +1,13 @@
+@import './../../../../styles/';
+
+.fuel-system {
+  &__header-h4 {
+    @include typographyFormHeaderh4;
+    margin-bottom: 15px;
+  }
+
+  &__header-h5 {
+    @include typographyFormHeaderh5;
+    margin-bottom: 15px;
+  }
+}

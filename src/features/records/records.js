@@ -1,10 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getRecords } from "../../api/api";
+import { addRecord, getRecords } from "../../api/api";
 
 export const getCarsRecords = createAsyncThunk('carsRecords/fetch', async() => {
   const value = await getRecords();
 
   return value.data;
+});
+
+export const addNewCarRecord = createAsyncThunk('createCarRecord', async(record) => {
+  const value = await addRecord(record);
+  return [value.data, record];
 });
 
 const initialState = {
@@ -23,9 +28,14 @@ export const recordsSlice = createSlice({
 
       state.carsRecords = Object.entries(payload);
     }),
+
     builder.addCase(getCarsRecords.rejected, state => {
       state.hasError = true;
       state.loaded = false;
+    }),
+
+    builder.addCase(addNewCarRecord.fulfilled, (state, { payload }) => {
+      state.carsRecords.push(payload);
     })
   },
 })
