@@ -1,10 +1,10 @@
-import { useFormContext, useFieldArray } from "react-hook-form"
+import { useFieldArray, useFormContext } from "react-hook-form"
 import styles from './FormOwner.module.scss';
 
 export const FormOwner = () => {
-  const { register, control } = useFormContext();
+  const { register, control, formState } = useFormContext();
+  const { errors } = formState;
   
-
   const { fields, remove, append } = useFieldArray({
     name: 'owner.insurance.coverage',
     control,
@@ -20,8 +20,16 @@ export const FormOwner = () => {
         <input 
           id="owner-name" 
           type="text" 
-          {...register("owner.name")}
+          {...register("owner.name",
+            {
+              required: {
+                value: true,
+                message:'Name is required',
+            }}
+          )}
         />
+
+        <p className={styles.group__error}>{errors.owner?.name?.message}</p>
       </div>
 
       <div className={styles.group}>
@@ -29,9 +37,16 @@ export const FormOwner = () => {
 
         <input 
           id="owner-age" 
-          type="text" 
-          {...register("owner.age")}
+          type="number" 
+          {...register("owner.age",
+            {
+              required: {
+                value: true,
+                message:'Age is required',
+            }}
+          )}
         />
+        <p className={styles.group__error}>{errors.owner?.age?.message}</p>
       </div>
 
       <div>
@@ -43,8 +58,16 @@ export const FormOwner = () => {
           <input 
             id="street"
             type="text" 
-            {...register("owner.address.street")}
+            {...register("owner.address.street",
+              {
+                required: {
+                  value: true,
+                  message:'Street is required',
+              }}
+            )}
           />
+
+          <p className={styles.group__error}>{errors.owner?.address?.street?.message}</p>
         </div>
         
         <div className={styles.group}>
@@ -53,8 +76,16 @@ export const FormOwner = () => {
           <input 
             id="city" 
             type="text" 
-            {...register("owner.address.city")}
+            {...register("owner.address.city",
+              {
+                required: {
+                  value: true,
+                  message:'City is required',
+              }}
+            )}
           />
+
+          <p className={styles.group__error}>{errors.owner?.address?.city?.message}</p>
         </div>
 
         <div className={styles.group}>
@@ -63,8 +94,16 @@ export const FormOwner = () => {
           <input 
             id="state" 
             type="text" 
-            {...register("owner.address.state")}
+            {...register("owner.address.state",
+              {
+                required: {
+                  value: true,
+                  message:'State is required',
+              }}
+            )}
           />
+
+          <p className={styles.group__error}>{errors.owner?.address?.state?.message}</p>
         </div>
 
         <div className={styles.group}>
@@ -73,8 +112,16 @@ export const FormOwner = () => {
           <input 
             id="zip-code" 
             type="text" 
-            {...register("owner.address.zipCode")}
+            {...register("owner.address.zipCode",
+            {
+              required: {
+                value: true,
+                message:'Zip code is required',
+            }}
+            )}
           />
+
+          <p className={styles.group__error}>{errors.owner?.address?.zipCode?.message}</p>
         </div>
       </div>
       <div>
@@ -86,8 +133,16 @@ export const FormOwner = () => {
           <input 
             type="tel"
             id="phone" 
-            {...register("owner.contact.phone")}
+            {...register("owner.contact.phone",
+              {
+                required: {
+                  value: true,
+                  message:'Contact phone is required',
+              }}
+            )}
           />
+
+          <p className={styles.group__error}>{errors.owner?.contact?.phone?.message}</p>
         </div>
 
         <div className={styles.group}>
@@ -96,8 +151,16 @@ export const FormOwner = () => {
           <input 
             type="email" 
             id="email" 
-            {...register("owner.contact.email")}
+            {...register("owner.contact.email",
+              {
+                required: {
+                  value: true,
+                  message:'Contact phone is required',
+              }}
+            )}
           />
+
+          <p className={styles.group__error}>{errors.owner?.contact?.email?.message}</p>
         </div>
         
       </div>
@@ -112,8 +175,16 @@ export const FormOwner = () => {
             <input 
               type="text"  
               id="provider" 
-              {...register("owner.insurance.provider")}
+              {...register("owner.insurance.provider",
+                {
+                  required: {
+                    value: true,
+                    message:'Insurance provider is required',
+                }}
+              )}
             />
+
+          <p className={styles.group__error}>{errors.owner?.insurance?.provider?.message}</p>
           </div>
 
           <div className={styles.group}>
@@ -122,8 +193,16 @@ export const FormOwner = () => {
             <input 
               type="text"  
               id="policy-number" 
-              {...register("owner.insurance.policyNumber")}
+              {...register("owner.insurance.policyNumber",
+                {
+                  required: {
+                    value: true,
+                    message:'Insurance policy number is required',
+                }}
+              )}
             />
+
+            <p className={styles.group__error}>{errors.owner?.insurance?.policyNumber?.message}</p>
           </div>
 
           <div>
@@ -135,8 +214,16 @@ export const FormOwner = () => {
                     <input 
                       type="text"  
                       id="insurance-coverage" 
-                      {...register(`owner.insurance.coverage.${index}`)}
+                      {...register(`owner.insurance.coverage.${index}`,
+                        {
+                          required: {
+                            value: true,
+                            message:'Insurance coverage is required',
+                        }}
+                      )}
                     />
+
+                    <p className={styles.group__error}>{errors.owner?.insurance?.coverage?.[index]?.message}</p>
                       {index > 0 && (
                         <button
                           className={styles['remove-button']}

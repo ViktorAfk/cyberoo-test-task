@@ -21,6 +21,12 @@
     @include typographyFormInput;
   }
 
+  &__error {
+    font-size: 12px;
+    color: #FF9242;
+    text-align: center;
+  }
+
 }
 
 .add-button {

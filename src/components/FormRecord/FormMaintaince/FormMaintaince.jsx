@@ -1,14 +1,16 @@
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFieldArray, useFormContext,  } from "react-hook-form";
 import { PartUsed } from "./PartUsed/PartUsed";
 import styles from './FormMaintaince.module.scss';
 
 export const FormMaintaince = () => {
-  const {register, control} = useFormContext();
+  const { register, control, formState } = useFormContext();
 
-  const {fields, append, remove} = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     name: 'maintenanceRecords',
     control,
   })
+  
+  const { errors } =formState;
 
   return (
     <div>
@@ -18,29 +20,90 @@ export const FormMaintaince = () => {
           <div key={field.id}>
             <div className={styles.group}>
               <label htmlFor="date">date</label>
-              <input type="date" id="date" {...register(`maintenanceRecords.${index}.date`)}/>
+              <input 
+                type="date" 
+                id="date" 
+                {...register(`maintenanceRecords.${index}.date`,
+                  {
+                    required: {
+                      value: true,
+                      message:'Date is required',
+                  }}
+                )}
+              />
+
+              <p className={styles.group__error}>{errors.maintenanceRecords?.[index]?.date?.message}</p>
             </div>
 
             <div className={styles.group}>
               <label htmlFor="description">description</label>
-              <input type="text" id="description" {...register(`maintenanceRecords.${index}.description`)}/>
+              <input 
+                type="text" 
+                id="description" 
+                {...register(`maintenanceRecords.${index}.description`,
+                  {
+                    required: {
+                      value: true,
+                      message:'Description is required',
+                  }}
+                )}
+              />
+
+              <p className={styles.group__error}>{errors.maintenanceRecords?.[index]?.description?.message}</p>
             </div >
 
             <div className={styles.group}>
               <label htmlFor="mileage">mileage</label>
-              <input type="text" id="mileage" {...register(`maintenanceRecords.${index}.mileage`)}/>
+              <input 
+                type="number" 
+                id="mileage" 
+                {...register(`maintenanceRecords.${index}.mileage`,
+                  {
+                    required: {
+                      value: true,
+                      message:'Description is required',
+                  }}
+                )}
+              />
+
+              <p className={styles.group__error}>{errors.maintenanceRecords?.[index]?.mileage?.message}</p>
             </div>
 
             <div>
               <h4 className={styles['mainteince__header-h4']}>service center</h4>
                 <div className={styles.group}>
                   <label htmlFor="service-center">name</label>
-                  <input type="text" id="service-center" {...register(`maintenanceRecords.${index}.serviceCenter.name`)}/>
+                  <input 
+                    type="text" 
+                    id="service-center" 
+                    {...register(`maintenanceRecords.${index}.serviceCenter.name`,
+                      {
+                        required: {
+                          value: true,
+                          message:'Name is required',
+                      }}
+                    )}
+                  />
+
+                  <p className={styles.group__error}>{errors.maintenanceRecords?.[index]?.serviceCenter?.name?.message}</p>
                 </div>
 
                 <div className={styles.group}>
                   <label htmlFor="service-center">location</label>
-                  <input type="text" id="service-center" {...register(`maintenanceRecords.${index}.serviceCenter.location`)}/>
+                  <input 
+                    type="text" 
+                    id="service-center" 
+                    {...register(`maintenanceRecords.${index}.serviceCenter.location`,
+                      {
+                        required: {
+                          value: true,
+                          message:'Location is required',
+                      }}
+                    )}
+                  />
+
+                  <p className={styles.group__error}>{errors.maintenanceRecords?.[index]?.serviceCenter?.location?.message}</p>
+
                   {
                     index > 0 && (
                     <button 
@@ -56,7 +119,7 @@ export const FormMaintaince = () => {
                  }
                 </div>
             </div>
-            <PartUsed mainIndex={index}/>
+            <PartUsed mainIndex={index} errors={errors}/>
           </div>
         ))}
         <button

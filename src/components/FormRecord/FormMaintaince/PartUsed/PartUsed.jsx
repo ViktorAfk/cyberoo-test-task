@@ -1,7 +1,7 @@
 import { useFieldArray, useFormContext } from "react-hook-form"
 import styles from './PartUsed.module.scss';
 
-export const PartUsed = ( { mainIndex }) => {
+export const PartUsed = ( { mainIndex, errors }) => {
   const { register, control } = useFormContext();
   const {fields, append, remove} =useFieldArray({
     name: 'partsUsed',
@@ -16,7 +16,8 @@ export const PartUsed = ( { mainIndex }) => {
           onClick={() => append({
           name: '',
           quantity: '',
-          })} type="button">Add part
+          })} type="button">
+            Add part
         </button>
       </div>
         <div>
@@ -24,12 +25,36 @@ export const PartUsed = ( { mainIndex }) => {
             <div key={field.id}>
               <div className={styles.group}>
                 <label htmlFor="partsUsed-name">name</label>
-                <input type="text" id="partsUsed-name" {...register(`maintenanceRecords.${mainIndex}.partsUsed.${index}.name`)}/>
+                <input 
+                  type="text" 
+                  id="partsUsed-name" 
+                  {...register(`maintenanceRecords.${mainIndex}.partsUsed.${index}.name`,
+                    {
+                      required: {
+                        value: true,
+                        message:'Part name is required',
+                    }}
+                  )}
+                />
+
+                <p className={styles.group__error}>{errors.maintenanceRecords?.[mainIndex]?.partsUsed?.[index]?.name?.message}</p>
               </div>
 
               <div className={styles.group}>
                 <label htmlFor="partsUsed-quantity">quantity</label>
-                <input type="text" id="partsUsed-quantity" {...register(`maintenanceRecords.${mainIndex}.partsUsed.${index}.quantity`)}/>
+                <input 
+                  type="text" 
+                  id="partsUsed-quantity" 
+                  {...register(`maintenanceRecords.${mainIndex}.partsUsed.${index}.quantity`,
+                    {
+                      required: {
+                        value: true,
+                        message:'Quantity is required',
+                    }}
+                  )}
+                />
+
+                <p className={styles.group__error}>{errors.maintenanceRecords?.[mainIndex]?.partsUsed?.[index]?.quantity?.message}</p>
                 {
                 index > 0 && (
                   <button 

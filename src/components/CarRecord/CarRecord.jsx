@@ -5,11 +5,11 @@ import { getCarRecord } from "../../features/car/car";
 import { PowerTrain } from "./PowerTrain/PowerTrain";
 import { Loader } from "../Loader/Loader";
 import { CarDetailsButton } from "../Buttons/CarDetailsButotn/CarDetailsButton";
-import styles from './CarRecord.module.scss';
 import { Owner } from "./Owner/Owner";
 import { MaintaineRecords } from "./MaintainRecords/MaintaineRecords";
 import { Button } from "../Buttons/Button/Button";
-import { FormRecord } from "../FormRecord/FormRecord";
+import styles from './CarRecord.module.scss';
+// import { FormRecord } from "../FormRecord/FormRecord";
 
 
 
@@ -92,7 +92,7 @@ const headerInfo = `${manufacturer} ${model}, ${year}`;
             Edit
           </Button>
         </article>
-        <FormRecord />
+        {/* <FormRecord /> */}
       </div>
     </section>
    

@@ -1,8 +1,8 @@
-import { useFormContext, useFieldArray, } from "react-hook-form"
+import { useFieldArray, useFormContext, } from "react-hook-form"
 import styles from './Features.module.scss';
 
 export const FeaturesForm = () => {
-  const { register, control } = useFormContext({
+  const { register, control, formState } = useFormContext({
     defaultValues: {
       features: ['']
     }
@@ -12,6 +12,8 @@ export const FeaturesForm = () => {
     control
   });
 
+  const { errors } = formState;
+
   return (
     <div>
       <h3 className={styles.features__header}>features</h3>
@@ -20,7 +22,12 @@ export const FeaturesForm = () => {
             return (
               <div className={styles.group} key={field.id}>
                 <label htmlFor="feature">feture</label>
-                <input  id="feature" type="text" {...register(`features.${index}`)}/>
+                <input  id="feature" type="text" {...register(`features.${index}`, {
+                  required: {
+                    value: true,
+                    message:'Feature is required',
+                } })}/>
+                <p className={styles.group__error}>{errors.features?.[index]?.message}</p>
                 {index > 0 && (
                   <button
                     title="remove feature"
@@ -33,6 +40,7 @@ export const FeaturesForm = () => {
                     </svg>
                   </button>
                   )}
+                   
               </div>
             )
           })

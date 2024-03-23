@@ -2,4 +2,9 @@
 
 .form-key {
   border-bottom: 1px solid $line-color;
+  
+  &__header {
+    margin-bottom: 30px;
+    @include typographyFormHeaderh3;
+  }
 }
