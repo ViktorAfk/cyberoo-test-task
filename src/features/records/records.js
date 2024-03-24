@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { addRecord, getRecords } from "../../api/api";
+import { addRecord, deleteRecord, getRecords } from "../../api/api";
 
 export const getCarsRecords = createAsyncThunk('carsRecords/fetch', async() => {
   const value = await getRecords();
@@ -7,10 +7,17 @@ export const getCarsRecords = createAsyncThunk('carsRecords/fetch', async() => {
   return value.data;
 });
 
-export const addNewCarRecord = createAsyncThunk('createCarRecord', async(record) => {
+export const addNewCarRecord = createAsyncThunk('createCarRecord/fetch', async(record) => {
   const value = await addRecord(record);
-  return [value.data, record];
+  const { name } = value.data
+  return [name, record];
 });
+
+export const deleteCarRecord = createAsyncThunk('deleteRecord/fetch', async(name) => {
+  const value = await deleteRecord(name);
+
+  return value.data;
+})
 
 const initialState = {
   carsRecords: [],
@@ -21,7 +28,13 @@ const initialState = {
 export const recordsSlice = createSlice({
   name: 'records',
   initialState,
-  reducers: {},
+  reducers: {
+    removeCarRecord: (state, {payload}) => {
+      const findCurIndex = state.carsRecords.findIndex(([ name ]) => name === payload);
+      console.log(findCurIndex)
+      state.carsRecords.splice(findCurIndex, 1);
+    },
+  },
   extraReducers: builder => {
     builder.addCase(getCarsRecords.fulfilled, (state, { payload }) => {
       state.loaded = false;
@@ -36,8 +49,9 @@ export const recordsSlice = createSlice({
 
     builder.addCase(addNewCarRecord.fulfilled, (state, { payload }) => {
       state.carsRecords.push(payload);
-    })
-  },
-})
+    });
+  }
+});
 
+export const { removeCarRecord } = recordsSlice.actions;
 export default recordsSlice.reducer;

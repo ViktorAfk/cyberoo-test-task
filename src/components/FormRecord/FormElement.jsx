@@ -7,20 +7,49 @@ import { FormEngine } from './FormEngine/FormEngine';
 import { FormBattery } from './FormBattery/FormBattery';
 import { FeaturesForm } from './FormFeatures/Features';
 import { FormMaintaince } from './FormMaintaince/FormMaintaince';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import styles from './FormElement.module.scss';
-import { useState } from 'react';
+import { updateCarRecord } from '../../features/car/car';
 
-export const FormElement = () => {
-  const [ type, setType ] = useState()
-  const methods = useForm();
+
+export const FormElement = ({ currentCar, name }) => {
+  const [ type, setType ] = useState('');
+  const methods = useForm( {
+    values: currentCar,
+  });
+
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const onSubmit = (data) => {
-    console.log(data)
-    dispatch(addNewCarRecord(data));
+  const { formState, reset} = methods;
+  const { errors, isSubmitting } = formState;
+  const hasEngine = currentCar ? Object.hasOwn(currentCar, 'engine') : null;
+  const hasBattery = currentCar ? Object.hasOwn(currentCar, 'battery') : null;
+
+  const onSubmit = async(data) => {
+
+    if(currentCar) {
+      const editInfo = [name, data];
+      dispatch(updateCarRecord(editInfo));
+
+      return;
+    }
+    setTimeout(() => {
+      const newData = { ...data}
+    if (type === 'engine') {
+      delete newData.battery
+    }
+    if (type === 'battery') {
+      delete newData.engine
+    }
+
+    dispatch(addNewCarRecord(newData));
+    reset()
+    }, 1000)
+    
+    
   };
-
-
 
   return (
     <FormProvider {...methods}>
@@ -36,7 +65,7 @@ export const FormElement = () => {
               <div className={styles['formelement__button-container']}>
                 <button 
                   className={cn(styles['formelement__button-select'], {
-                  [styles['formelement__button-select--active']]: type === 'engine'
+                  [styles['formelement__button-select--active']]: type === 'engine' || hasEngine
                   })} 
                   onClick={() => setType('engine')}
                 >
@@ -44,24 +73,50 @@ export const FormElement = () => {
                 </button>
             
                 <button className={cn(styles['formelement__button-select'], {
-                  [styles['formelement__button-select--active']]: type === 'battery'
+                  [styles['formelement__button-select--active']]: type === 'battery' || hasBattery
                   })} 
                   onClick={() => setType('battery')}
                 >
                   battery
                 </button>
               </div>
-              { type === 'engine' && <FormEngine />}
-              { type  === 'battery' && <FormBattery />}
+              { (type === 'engine' || hasEngine) && <FormEngine />}
+              { (type  === 'battery' || hasBattery) && (<FormBattery />)}
+              {errors.root && <p>{errors.root.message}</p>}
             </div>
             <FormMaintaince />
           </div>
-          <div>
-           
-          </div>
         </div>
 
-        <button className={styles.formelement__button} onSubmit={methods.handleSubmit(onSubmit)} type="submit"> Send </button>
+        {currentCar ? ( 
+         <div className={styles['formelement__edit-buttons']}>
+            <button 
+              type="submit"
+              disabled={isSubmitting}
+              onSubmit={methods.handleSubmit(onSubmit)}
+              className={styles['formelement__button-save']}
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className={styles['formelement__button-back']}
+            >
+              Back
+            </button>
+          </div>) : (
+            <button
+            disabled={isSubmitting}
+            className={ cn(styles.formelement__button, {
+              [styles['formelement__button--is-disabled']]: isSubmitting,
+            })} 
+            onSubmit={methods.handleSubmit(onSubmit)} 
+            type="submit"
+          > 
+            Send 
+          </button>
+         )}
       </form>
     </FormProvider>
   )

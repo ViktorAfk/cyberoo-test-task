@@ -11,4 +11,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &:hover {
+    background-color: #FF9242;
+  }
+
+  &--active {
+    background-color: #FF9242;;
+  }
 }

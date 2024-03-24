@@ -16,6 +16,7 @@ import styles from './App.module.scss';
   return (
     <div className={styles.app}>
       <Header />
+
       <main className={styles.app__main}>
         <div>
           <Outlet />

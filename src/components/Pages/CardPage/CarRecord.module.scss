@@ -1,4 +1,4 @@
-@import '../../styles';
+@import './../../../styles/';
 
 .car-section {
   background-color: #fff;
@@ -9,6 +9,7 @@
   max-width: 920px;
   margin-inline: auto;
   background-color: #FFF
+  
 }
 
 .car {
@@ -63,4 +64,20 @@
     }
   }
 
+  &__edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $button-collor;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    @include typographyButton;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+
+  
 }

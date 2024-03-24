@@ -2,16 +2,24 @@ import { Fragment } from "react";
 import styles from './MaintaineRecords.module.scss';
 
 export const MaintaineRecords = ({ maintenanceRecords }) => {
-  console.log(maintenanceRecords)
+
+  if (!maintenanceRecords) {
+    return (
+    <p className={styles['maintain-record__information']}> 
+      There is no information 
+    </p>)
+  }
+
   const maintainces = maintenanceRecords.map(maintaince => (
     {
      ...maintaince, 
      id: crypto.randomUUID(),
     }
-  ));
+  )) || null;
 
   return (
     <div className={styles['maintain-record']}>
+    
       {maintainces.map(maintaince => {
         const {
           id, 
@@ -21,7 +29,7 @@ export const MaintaineRecords = ({ maintenanceRecords }) => {
           serviceCenter,
           partsUsed,
         } = maintaince;
-        console.log(id);
+
         return (
           <Fragment key={id}>
             <div className={styles['maintain-record__item']}>

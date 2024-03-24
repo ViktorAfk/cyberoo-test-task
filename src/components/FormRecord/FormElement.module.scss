@@ -55,5 +55,49 @@
   line-height: 146.484%;
   letter-spacing: 1.28px;
 
+  &:hover {
+    background-color: $main-color;
+  }
+
+  &--is-disabled {
+    cursor: none;
+    opacity: 0.8;
+  }
+
 }
+  &__edit-buttons {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+  }
+
+  &__button-save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF9242;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    @include typographyButton;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+
+  &__button-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $button-collor;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    @include typographyButton;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
 }

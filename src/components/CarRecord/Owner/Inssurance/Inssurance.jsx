@@ -18,8 +18,15 @@ export const Inssurance = ({ inssurance }) => {
       </div>
       
       <div className={styles.inssurance__item}>
-        <p className={styles.inssurance__type}>coverage:</p>
-        <p className={styles.inssurance__information}>{ coverage.join(', ') }</p>
+            <p className={styles.inssurance__type}>coverage:</p>
+            {!coverage || coverage.length === 0 
+        ? (
+          <p className={styles.inssurance__information}>There is no information about</p>
+        ) : (
+          <>
+            <p className={styles.inssurance__information}>{ coverage.join(', ') }</p>
+          </>
+        )}
       </div>
     </div>
   )

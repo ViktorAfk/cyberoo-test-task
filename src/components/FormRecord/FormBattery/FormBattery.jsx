@@ -4,7 +4,6 @@ import styles from './FormBattery.module.scss';
 export const FormBattery = () => {
   const { register, control, formState } = useFormContext();
   const { fields, append, remove } = useFieldArray({
-    name: 'chargingStations',
     control,
   });
 
@@ -94,7 +93,7 @@ export const FormBattery = () => {
                       <input 
                         id="charging-name" 
                         type="text" 
-                        {...register(`chargingStations.${index}.name`,
+                        {...register(`battery.chargingStations.${index}.name`,
                           {
                             required: {
                               value: true,
@@ -111,7 +110,7 @@ export const FormBattery = () => {
                         <input 
                           id="chaghing-location" 
                           type="text" 
-                          {...register(`chargingStations.${index}.location`,
+                          {...register(`battery.chargingStations.${index}.location`,
                             {
                               required: {
                                 value: true,

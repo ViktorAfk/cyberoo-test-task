@@ -27,7 +27,6 @@ export const FeaturesForm = () => {
                     value: true,
                     message:'Feature is required',
                 } })}/>
-                <p className={styles.group__error}>{errors.features?.[index]?.message}</p>
                 {index > 0 && (
                   <button
                     title="remove feature"
@@ -40,12 +39,20 @@ export const FeaturesForm = () => {
                     </svg>
                   </button>
                   )}
-                   
+                <p className={styles.group__error}>
+                  {errors.features?.[index]?.message}
+                </p>
               </div>
             )
           })
         }
-      <button className={styles['add-button']} type="button" onClick={() => append('')}>Add features</button>
+      <button 
+        className={styles['add-button']} 
+        type="button" 
+        onClick={() => append('')}
+      >
+        Add features
+      </button>
     </div>
   )
 }

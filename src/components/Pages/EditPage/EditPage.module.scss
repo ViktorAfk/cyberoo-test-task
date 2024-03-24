@@ -1,0 +1,10 @@
+@import './../../../styles/';
+
+.edit-page {
+  padding-block: 25px 64px;
+
+  &__header {
+    @include typographyCarHeader;
+    margin-bottom: 30px;
+  }
+}

@@ -37,7 +37,10 @@ export const Battery = ({ battery }) => {
 
       <div>
         <h5 className={styles.battery__header}>charging stations:</h5>
-        {chargingStations.map(({ name, location }) => (
+        {!chargingStations || chargingStations.length === 0 ? (
+           <p className={styles.battery__information}>There is no information</p>
+        ) : (
+          chargingStations.map(({ name, location }) => (
           <div key={ name }>
             <div className={styles.battery__item}>
               <p className={styles.battery__type}>name:</p>
@@ -49,7 +52,7 @@ export const Battery = ({ battery }) => {
             </div>
           </div>
           ))
-        }
+        )}
       </div>
     </div>
   )

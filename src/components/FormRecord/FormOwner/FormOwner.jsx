@@ -222,8 +222,6 @@ export const FormOwner = () => {
                         }}
                       )}
                     />
-
-                    <p className={styles.group__error}>{errors.owner?.insurance?.coverage?.[index]?.message}</p>
                       {index > 0 && (
                         <button
                           className={styles['remove-button']}
@@ -235,11 +233,21 @@ export const FormOwner = () => {
                           </svg>
                         </button>
                       )}
+
+                       <p className={styles.group__error}>
+                        {errors.owner?.insurance?.coverage?.[index]?.message}
+                      </p>
                   </div>
                   )
                 })
               }
-            <button className={styles['add-button']} type="button" onClick={() => append('')}>Add coverage</button>
+            <button 
+              className={styles['add-button']} 
+              type="button" 
+              onClick={() => append('')}
+            >
+              Add coverage
+            </button>
           </div>
         </div>
       </div>

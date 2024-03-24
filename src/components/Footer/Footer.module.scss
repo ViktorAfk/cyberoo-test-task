@@ -1,4 +1,50 @@
+@import './../../styles/';
+
 .car-footer {
   height: 83px;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.12);
+
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: $mobile-inline-padding;
+    @include onTablet {
+      padding-inline: $tablet-inline-padding;
+    }
+    
+    @include onDesktop {
+      padding-inline: $pc-inline-padding;
+    }
+  }
+
+  &__list {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  &__link {
+    @include typographyCarInformation;
+    color: $button-collor;
+  }
+
+  &__go_top {
+    justify-self: center;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    cursor: pointer;
+    @include typographyCarInformation;
+    color: $button-collor;
+
+    @include hover(color, $main-color);
+
+    &:hover * {
+      border-color: $main-color;
+    }
+  }
 }
