@@ -5,6 +5,7 @@ import { ModalWindow } from '../../ModalWindow/ModalWindow';
 import { Breadcrumbs } from '../../BreadCrumbs/BreadCrumbs';
 import styles from './CarsCatalog.module.scss';
 import { ErrorMessage } from '../../ErrorMessage/ErrorMessage';
+import Car from './../../../../public/car-item.png'
 
 export const CarsCatalog = () => {
   const [modal, setModal] = useState('');
@@ -27,7 +28,7 @@ export const CarsCatalog = () => {
         return (
         <article className={ styles.cars__card } key={ name }>
           <div className={styles['cars__img-container']}>
-            <img className={styles.cars__img} src="./car-item.png" alt="" />
+            <img className={styles.cars__img} src={Car} alt="Image of the current car" />
           </div>
           <div className={styles['cars__card-container']}>
             <div className={styles['cars__card-header-container']}>

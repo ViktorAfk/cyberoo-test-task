@@ -29,6 +29,9 @@
   &__link {
     @include typographyCarInformation;
     color: $button-collor;
+    &:hover {
+      color: $main-color;
+    }
   }
 
   &__go_top {

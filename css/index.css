@@ -56,10 +56,22 @@
   letter-spacing: 1.28px;
   margin-bottom: 15px;
 }
+.add-button:hover {
+  background-color: #2A2B2A;
+}
 
 .remove-button {
   padding-left: 10px;
-}/*# sourceMappingURL=index.css.map */ h1, h2, h3, h4, h5 {
+}
+.remove-button:hover {
+  background-color: #2A2B2A;
+}
+
+img {
+  display: block;
+}
+
+body, p, h1, h2, h3, h4, h5 {
   margin: 0;
 }
 
