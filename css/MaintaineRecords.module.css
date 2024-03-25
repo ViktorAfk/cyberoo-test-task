@@ -56,9 +56,15 @@
   letter-spacing: 1.28px;
   margin-bottom: 15px;
 }
+.add-button:hover {
+  background-color: #2A2B2A;
+}
 
 .remove-button {
   padding-left: 10px;
+}
+.remove-button:hover {
+  background-color: #2A2B2A;
 }
 
 .maintain-record {

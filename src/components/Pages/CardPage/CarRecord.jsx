@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +12,7 @@ import { MaintaineRecords } from '../../CarRecord/MaintainRecords/MaintaineRecor
 import styles from './CarRecord.module.scss';
 import { Breadcrumbs } from "../../BreadCrumbs/BreadCrumbs";
 import { ErrorMessage } from "../../ErrorMessage/ErrorMessage";
+import  CarImg from './car-image.avif'
 
 export const CarRecord = () => {
  const [showOwner, setShowOwner] = useState(false);
@@ -68,7 +68,7 @@ const headerInfo = `${manufacturer} ${model}, ${year}`;
               <PowerTrain />
 
               <div className={styles['car__image-container']}>
-                <img className={styles.car__image} src="./car-image.avif" alt="" />
+                <img className={styles.car__image} src={CarImg} alt="" />
               </div>
             </div>
 

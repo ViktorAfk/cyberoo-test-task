@@ -56,9 +56,15 @@
   letter-spacing: 1.28px;
   margin-bottom: 15px;
 }
+.add-button:hover {
+  background-color: #2A2B2A;
+}
 
 .remove-button {
   padding-left: 10px;
+}
+.remove-button:hover {
+  background-color: #2A2B2A;
 }
 
 .breadcrumbs {
@@ -93,6 +99,7 @@
   line-height: 146.5%;
   letter-spacing: 1.28px;
   transition: color 0.3s;
+  transition: scale 0.3s;
 }
 @media (min-width: 640px) {
   .breadcrumbs--location-page-name {
@@ -100,5 +107,18 @@
   }
 }
 .breadcrumbs--location-page-name:hover {
-  color: #707481;
+  color: #2A2B2A;
+}
+.breadcrumbs--location-page-name:hover {
+  scale: 1.08;
+}
+
+svg {
+  transition: scale 0.3s;
+}
+svg:hover {
+  scale: 1.08;
+}
+svg path:hover {
+  fill: #2A2B2A;
 }/*# sourceMappingURL=BreadCrumbs.module.css.map */

@@ -27,6 +27,14 @@
   &--location-page-name {
     color: $line-text-color;
     @include typographyCarInformation;
-    @include hover(color, $line-text-color);
+    @include hover(color, $main-color);
+    @include hover(scale, 1.08);
+  }
+}
+
+svg {
+    @include hover(scale, 1.08);
+  & path:hover {
+    fill: $main-color;
   }
 }
