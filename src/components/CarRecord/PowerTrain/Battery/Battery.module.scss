@@ -1,0 +1,26 @@
+@import './../../../../styles/';
+
+.battery {
+  &__header {
+    @include typographyCarInformation;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    gap: 16px;
+    border-bottom: 1px solid #E3E4E8;
+  }
+
+  &__type {
+    @include typographyCarDetailsInformation;
+  }
+  &__information {
+    @include typographyCarInformation;
+    text-transform: uppercase;
+  }
+}

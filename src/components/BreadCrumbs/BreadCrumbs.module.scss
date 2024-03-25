@@ -1,0 +1,32 @@
+@import './../../styles/';
+
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  align-items: center;
+
+  @media (min-width: 640px) {
+    margin-bottom: 40px;
+  }
+
+  &__home_link {
+    display: block;
+  }
+
+  &__location_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:last-child {
+      pointer-events: none;
+    }
+  }
+
+  &--location-page-name {
+    color: $line-text-color;
+    @include typographyCarInformation;
+    @include hover(color, $line-text-color);
+  }
+}

@@ -1,0 +1,13 @@
+@import './../../../../styles/';
+
+.part-used {
+  &__header-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  &__header-h4 {
+    @include typographyFormHeaderh4;
+    margin-bottom: 15px;
+  }
+}

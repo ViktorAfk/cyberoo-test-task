@@ -1,0 +1,12 @@
+@import './../../styles/';
+
+.error {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__message {
+    @include typographyCarHeader;
+  }
+}

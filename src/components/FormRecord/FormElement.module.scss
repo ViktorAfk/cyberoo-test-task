@@ -1,0 +1,103 @@
+@import './../../styles/';
+
+.formelement {
+  &__container {
+    margin-bottom: 30px;
+    &-main {
+
+    @include catalogGrid;
+  }
+}
+
+&__button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+&__button-select {
+  all: unset;
+  outline: revert;
+  box-sizing: border-box;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  background-color: #FFF;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid $line-color;
+  @include typographyFormInput;
+  color: $main-color;
+  text-transform: uppercase;
+
+  &--active {
+    background-color: $main-color;
+    color: #fff;
+  }
+}
+&__button {
+  all: unset;
+  outline: revert;
+  box-sizing: border-box;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  background-color: $button-collor;
+  width: 170px;
+  height: 30px;
+  color: #FFF;
+  border-radius: 10px;
+  font-family: "Bebas Neue";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 146.484%;
+  letter-spacing: 1.28px;
+
+  &:hover {
+    background-color: $main-color;
+  }
+
+  &--is-disabled {
+    cursor: none;
+    opacity: 0.8;
+  }
+
+}
+  &__edit-buttons {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+  }
+
+  &__button-save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF9242;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    @include typographyButton;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+
+  &__button-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $button-collor;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    @include typographyButton;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+}

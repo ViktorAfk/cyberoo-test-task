@@ -1,16 +1,22 @@
-#root {
-  max-width: 1280px;
+@import './styles';
+
+.app {
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+  background-color: #FFF;
+  min-width: 375px;
 
-.cars-catalog {
-  display: flex;
-  gap: 20px;
-}
+  &__main {
+    padding-inline: $mobile-inline-padding;
+    max-width: 1280px;
+    min-height: 100vh;
+    background-color: #FFF;
 
-.car {
-  border: 1px solid black;
-  border-radius: 5px;
+    @include onTablet {
+      padding-inline: $tablet-inline-padding;
+    }
+    
+    @include onDesktop {
+      padding-inline: $pc-inline-padding;
+    }
+  }
 }

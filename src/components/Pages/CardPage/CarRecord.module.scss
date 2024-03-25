@@ -1,0 +1,83 @@
+@import './../../../styles/';
+
+.car-section {
+  background-color: #fff;
+}
+.car-container {
+  padding-top: 25px;
+  padding-bottom: 64px;
+  max-width: 920px;
+  margin-inline: auto;
+  background-color: #FFF
+  
+}
+
+.car {
+  &__header {
+    @include typographyCarHeader;
+    margin-bottom: 4px;
+  }
+
+  &__information {
+    display: flex;
+    gap: 8px;
+    @include typographyCarDetailsInformation;
+
+    margin-bottom: 20px;
+    &--item {
+      display: flex;
+      gap: 4px;
+
+    }
+  }
+
+  &__overview {
+    @include typographyCarOverview;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E3E4E8;
+    margin-bottom: 30px;
+  }
+ &__top-section {
+  
+  margin-bottom: 30px;
+  @include onTablet {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+ }
+  &__image {
+  width: 100%;
+  height: auto;
+}
+
+  &__buttons {
+    display: grid;
+    row-gap: 30px;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+      
+    }
+  }
+
+  &__edit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $button-collor;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    @include typographyButton;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+
+  
+}

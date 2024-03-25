@@ -1,0 +1,15 @@
+@import './../../../styles/';
+
+.form-engine {
+  border-bottom: 1px solid $line-color;
+  &__header {
+    margin-bottom: 30px;
+    @include typographyFormHeaderh3;
+  }
+
+  &__header-h4 {
+    @include typographyFormHeaderh4;
+    margin-bottom: 15px;
+  }
+
+}

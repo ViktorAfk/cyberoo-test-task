@@ -1,0 +1,20 @@
+@import './../../../styles/';
+
+.notfound {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+
+  &__message {
+    @include typographyCarHeader;
+    text-align: center;
+  }
+
+  &__link {
+    color: $line-text-color;
+    text-decoration: underline;
+    text-align: center;
+  }
+}

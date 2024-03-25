@@ -1,0 +1,29 @@
+@import './../../../styles/';
+
+.maintain-record {
+  padding-top: 30px;
+  
+  &__header {
+    @include typographyCarInformation;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #E3E4E8;
+  }
+  
+
+  &__type {
+    @include typographyCarDetailsInformation;
+  }
+
+  &__information {
+    @include typographyCarInformation;
+    text-transform: uppercase;
+  }
+}
