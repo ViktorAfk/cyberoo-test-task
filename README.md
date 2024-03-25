@@ -5,6 +5,7 @@ To run the project
  - You need to install dependencies run 'npm instal';
  - Once the dependencies are installed, you can start the Vite development server:
   'npm run dev'
+- open this link (http://localhost:5173/cyberoo-test-task)
 
 
 Includes:
