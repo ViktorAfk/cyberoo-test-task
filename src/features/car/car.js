@@ -38,6 +38,10 @@ const carSlice = createSlice({
 
     builder.addCase(updateCarRecord.fulfilled, (state, { payload }) => {
       state.currentCar = payload;
+    }),
+
+    builder.addCase(updateCarRecord.rejected, state => {
+      state.hasError = true;
     })
 
   }

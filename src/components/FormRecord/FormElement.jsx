@@ -22,33 +22,48 @@ export const FormElement = ({ currentCar, name }) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { formState, reset} = methods;
+  const { formState, reset, setError} = methods;
   const { errors, isSubmitting } = formState;
   const hasEngine = currentCar ? Object.hasOwn(currentCar, 'engine') : null;
   const hasBattery = currentCar ? Object.hasOwn(currentCar, 'battery') : null;
+ 
+  const onSubmit = (data) => {
+    const hasSomething = !Object.hasOwn(data, 'battery') || !Object.hasOwn(data, 'battery');
 
-  const onSubmit = async(data) => {
+    try{
 
-    if(currentCar) {
-      const editInfo = [name, data];
-      dispatch(updateCarRecord(editInfo));
+      if (currentCar) {
+        const editInfo = [name, data];
+        dispatch(updateCarRecord(editInfo));
+  
+        return;
+      }
 
-      return;
-    }
-    setTimeout(() => {
-      const newData = { ...data}
-    if (type === 'engine') {
-      delete newData.battery
-    }
-    if (type === 'battery') {
-      delete newData.engine
-    }
+      if (hasSomething) {
+        throw new Error()
+      }
 
-    dispatch(addNewCarRecord(newData));
-    reset()
-    }, 1000)
-    
-    
+      setTimeout(() => {
+        const newData = { ...data}
+      if (type === 'engine') {
+        delete newData.battery
+      }
+      if (type === 'battery') {
+        delete newData.engine
+      }
+  
+      dispatch(addNewCarRecord(newData));
+      reset()
+      }, 1000)
+
+      
+
+    } catch(error) {
+      setError("root", {
+        message: 'You need to choose battery or engine',
+      })
+  }
+
   };
 
   return (

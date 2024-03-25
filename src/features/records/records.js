@@ -49,7 +49,15 @@ export const recordsSlice = createSlice({
 
     builder.addCase(addNewCarRecord.fulfilled, (state, { payload }) => {
       state.carsRecords.push(payload);
-    });
+    }),
+
+    builder.addCase(addNewCarRecord.rejected, state => {
+      state.hasError = true;
+    }),
+
+    builder.addCase(deleteCarRecord.rejected, state => {
+      state.hasError = true;
+    })
   }
 });
 

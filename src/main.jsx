@@ -13,15 +13,13 @@ import { EditPage } from './components/Pages/EditPage/EditPage.jsx';
 import { HomePage } from './components/Pages/HomePage/HomePage.jsx';
 import { CarsCatalog } from './components/Pages/CatalogPage/CarsCatalog.jsx';
 import { CarRecord } from './components/Pages/CardPage/CarRecord.jsx';
-
-
-
+import { NotFoundPage } from './components/Pages/NotFounPage/NotFoundPage.jsx';
 
 const router = createHashRouter([
   {
     path:'/',
     element: <App/>,
-    // errorElement: <p>Oops, something went wrong</p>,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path:'/',
