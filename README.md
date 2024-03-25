@@ -41,13 +41,12 @@ Includes:
  • Implement a confirmation prompt before deletion.
 
 Technical Considerations:
- • Use React for building the components and managing state.
- • Use React Router for navigation between list view, detail view.
- • Implement state management effectively, considering stateful and stateless components.
- • Use react-hook-form for forms.
- • Use SCSS modules for styling, and ensure the application is responsive.
- • Use axios requests for fetching backend data.
- • For backend purposes you can  I used firebase
-Currently, two official plugins are available:
+ • React for building the components and managing state.
+ • React Router for navigation between list view, detail view.
+ • Redux toolkit as a state manager.
+ • React-hook-form for forms.
+ • SCSS modules for styling, application is responsive.
+ • Axios requests for fetching backend data.
+ • For backend purposes I used firebase
 
 - [DEMO LINK]( https://viktorafk.github.io/cyberoo-test-task/) 
